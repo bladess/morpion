@@ -2,9 +2,17 @@ var joueurCourant = 1;
 var array = [[0,0,0],[0,0,0],[0,0,0]];
 var score = [0,0];
 var count = 0;
-var countPartie = 0;
+var countPartie = 1;
+var maxPartie = parseInt(prompt("on veux un nombre de partie"));
+if(isNaN(maxPartie)){
+	maxPartie=5;
+}
+
+$(".nom1").text(prompt("nom joueur croix"));
+$(".nom2").text(prompt("nom joueur rond"));
+
 var majPartie = function(){
-	if (countPartie ===4){
+	if (countPartie === maxPartie){
 		if(score[0]>score[1]){
 			alert("joueur 1 win");
 		}
@@ -14,10 +22,16 @@ var majPartie = function(){
 		if(score[0]===score[1]){
 			alert ("match null");
 		}
-		countPartie=0;
+		countPartie=1;
+		maxPartie = parseInt(prompt("on veux un nombre de partie"));
+		if(isNaN(maxPartie)){
+			maxPartie=5;
+		}
+		$(".nom1").text(prompt("nom joueur croix"));
+		$(".nom2").text(prompt("nom joueur rond"));
 		$(".j1").text("0");
 		$(".j2").text("0");
-		$(".cp").text("0");
+		$(".cp").text("1");
 		score=[0,0];
 	}
 	else{
