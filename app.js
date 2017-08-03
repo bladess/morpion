@@ -5,6 +5,7 @@ var count = 0;
 var countPartie = 1;
 var maxPartie = parseInt(prompt("on veux un nombre de partie"));
 if(isNaN(maxPartie)){
+	alert("c'est pas un nombre du coup ça sera 5 partie");
 	maxPartie=5;
 }
 
@@ -48,7 +49,7 @@ var checkWin = function(ligne,col){
 		diag = (array[0][0] == array[1][1] && array[0][0] == array[2][2]);
 	}
 	if(ligne+col === 2){
-		diag = (array[0][2] == array[1][1] && array[1][1] == array[2][0]);
+		diag = diag || (array[0][2] == array[1][1] && array[1][1] == array[2][0]);
 	}
 	return checkLigne || checkColone || diag;
 
