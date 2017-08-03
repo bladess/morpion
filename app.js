@@ -40,8 +40,8 @@ var majPartie = function(){
 		$(".cp").text(countPartie);
 	}
 }
+
 var checkWin = function(ligne,col){
-	//check ligne
 	var diag = false;
 	var checkLigne = (array[ligne][0]=== array[ligne][1] && array[ligne][2]=== array[ligne][1]); 
 	var checkColone = (array[0][col] === array[1][col] && array[2][col] === array[1][col]);
@@ -51,9 +51,10 @@ var checkWin = function(ligne,col){
 	if(ligne+col === 2){
 		diag = diag || (array[0][2] == array[1][1] && array[1][1] == array[2][0]);
 	}
-	return checkLigne || checkColone || diag;
 
+	return checkLigne || checkColone || diag;
 };
+
 var resetPartie = function(){
 	$(".case").text('');
 	joueurCourant =1;
@@ -62,7 +63,6 @@ var resetPartie = function(){
 }
 
 $(".case").on("click",function(){
-	
 	if($(this).html()===''){
 		var ligne = $(this).parent().data("ligne");
 		var col = $(this).data("col");
@@ -91,16 +91,13 @@ $(".case").on("click",function(){
 					joueurCourant =1;
 				}
 				count++;
-
 			}
 			else{
 				majPartie();
 				resetPartie();
 			}
 		}
-
 	}
-
 });
 
 $("button").on("click",function(){
