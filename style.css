@@ -1,7 +1,10 @@
+.container{
+	padding-top: 30px
+}
 .case{
 	background: grey;
-	height: 75px;
-	width: 75px;
+	height: 100px;
+	width: 100px;
 	border: 1px solid black;
 }
 img{

@@ -19,7 +19,7 @@ var majPartie = function(){
 		}
 		if(score[0]===score[1]){
 			$(".winner").text("match null");
-		}
+		}			
 		$('#myModal2').modal('toggle');
 		countPartie=1;
 		$(".j1").text("0");
@@ -53,12 +53,15 @@ var resetPartie = function(){
 	array=[[0,0,0],[0,0,0],[0,0,0]];
 	count = 0;
 }
+//bouton du formulaire modale de creation de partie
+
 $("#validation").on("click",function(){
 	$(".nom1").text($("#joueur1").val());
 	$(".nom2").text($("#joueur2").val());
 	maxPartie = Math.max(isNaN(parseInt($("#nbPartie").val()))?1:parseInt($("#nbPartie").val()),1);
 	console.log(maxPartie);
 })
+//ajout d'un pion et consequence
 $(".case").on("click",function(){
 	if($(this).html()===''){
 		var ligne = $(this).parent().data("ligne");
@@ -96,6 +99,7 @@ $(".case").on("click",function(){
 		}
 	}
 });
+//bouton reset du modale de resulta
 $("#closeRes").on("click",function(){
 	$('#myModal').modal('toggle');
 });
