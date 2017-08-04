@@ -3,14 +3,11 @@ var array = [[0,0,0],[0,0,0],[0,0,0]];
 var score = [0,0];
 var count = 0;
 var countPartie = 1;
-var maxPartie = parseInt(prompt("on veux un nombre de partie"));
-if(isNaN(maxPartie)){
-	alert("c'est pas un nombre du coup ça sera 5 partie");
-	maxPartie=5;
-}
 
-$(".nom1").text(prompt("nom joueur croix"));
-$(".nom2").text(prompt("nom joueur rond"));
+var maxPartie = 0;
+$('#myModal').modal('toggle');
+
+
 
 var majPartie = function(){
 	if (countPartie === maxPartie){
@@ -24,12 +21,7 @@ var majPartie = function(){
 			alert ("match null");
 		}
 		countPartie=1;
-		maxPartie = parseInt(prompt("on veux un nombre de partie"));
-		if(isNaN(maxPartie)){
-			maxPartie=5;
-		}
-		$(".nom1").text(prompt("nom joueur croix"));
-		$(".nom2").text(prompt("nom joueur rond"));
+		$('#myModal').modal('toggle');
 		$(".j1").text("0");
 		$(".j2").text("0");
 		$(".cp").text("1");
@@ -61,7 +53,12 @@ var resetPartie = function(){
 	array=[[0,0,0],[0,0,0],[0,0,0]];
 	count = 0;
 }
-
+$("#validation").on("click",function(){
+	$(".nom1").text($("#joueur1").val());
+	$(".nom2").text($("#joueur2").val());
+	maxPartie = Math.max(isNaN(parseInt($("#nbPartie").val()))?1:parseInt($("#nbPartie").val()),1);
+	console.log(maxPartie);
+})
 $(".case").on("click",function(){
 	if($(this).html()===''){
 		var ligne = $(this).parent().data("ligne");
