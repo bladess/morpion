@@ -4,7 +4,7 @@ var score = [0,0];
 var count = 0;
 var countPartie = 1;
 
-var maxPartie = 0;
+var maxPartie = 1;
 $('#myModal').modal('toggle');
 
 
@@ -12,16 +12,16 @@ $('#myModal').modal('toggle');
 var majPartie = function(){
 	if (countPartie === maxPartie){
 		if(score[0]>score[1]){
-			alert("joueur 1 win");
+			$(".winner").text($(".nom1").text()+" (croix)");
 		}
 		if(score[0]<score[1]){
-			alert("joueur 2 win");
+		$(".winner").text($(".nom2").text()+ " (rond)");
 		}
 		if(score[0]===score[1]){
-			alert ("match null");
+			$(".winner").text("match null");
 		}
+		$('#myModal2').modal('toggle');
 		countPartie=1;
-		$('#myModal').modal('toggle');
 		$(".j1").text("0");
 		$(".j2").text("0");
 		$(".cp").text("1");
@@ -96,7 +96,6 @@ $(".case").on("click",function(){
 		}
 	}
 });
-
-$("button").on("click",function(){
-	resetPartie();
+$("#closeRes").on("click",function(){
+	$('#myModal').modal('toggle');
 });
